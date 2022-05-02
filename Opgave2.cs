@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Threading;
 
-namespace Opg3
+namespace Tråde1
 {
     class Program
     {
@@ -20,19 +20,8 @@ namespace Opg3
         {
             while (true)
             {
-                Monitor.Enter(Lock);
-                {
-                    try
-                    {
-                        count += 60;
-                        Console.WriteLine(new string(c, 60) + " | " + count);
-                    }
-                    finally
-                    {
-                        Monitor.PulseAll(Lock);
-                    }
-                    Monitor.Exit(Lock);
-                }
+                count += 60;
+                Console.WriteLine(new string(c, 60) + " | " + count);
                 Thread.Sleep(500);
             }
         }
